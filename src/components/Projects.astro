@@ -1,0 +1,173 @@
+---
+const projects = [
+  {
+    title: "CloudSync Pro",
+    description: "A comprehensive cloud synchronization tool that seamlessly integrates multiple cloud storage providers with real-time sync capabilities.",
+    tags: ["React", "Node.js", "AWS", "WebSocket"],
+    link: "https://github.com/jflxcloud/cloudsync-pro",
+    status: "Active"
+  },
+  {
+    title: "DevOps Dashboard",
+    description: "Real-time monitoring dashboard for DevOps teams with custom metrics, alerts, and deployment tracking.",
+    tags: ["Vue.js", "Python", "Docker", "PostgreSQL"],
+    link: "https://github.com/jflxcloud/devops-dashboard",
+    status: "Active"
+  },
+  {
+    title: "API Gateway Starter",
+    description: "A production-ready API gateway template with authentication, rate limiting, and comprehensive logging.",
+    tags: ["Node.js", "Express", "Redis", "JWT"],
+    link: "https://github.com/jflxcloud/api-gateway-starter",
+    status: "Template"
+  },
+  {
+    title: "Micro SaaS Boilerplate",
+    description: "Complete boilerplate for launching micro SaaS applications with payment integration and user management.",
+    tags: ["Next.js", "Stripe", "Supabase", "Tailwind"],
+    link: "https://github.com/jflxcloud/micro-saas-boilerplate",
+    status: "Boilerplate"
+  },
+  {
+    title: "Cloud Cost Optimizer",
+    description: "Automated tool for analyzing and optimizing cloud infrastructure costs across multiple providers.",
+    tags: ["Python", "AWS SDK", "Terraform", "Analytics"],
+    link: "https://github.com/jflxcloud/cloud-cost-optimizer",
+    status: "Beta"
+  },
+  {
+    title: "Real-time Chat Engine",
+    description: "Scalable real-time chat engine with support for rooms, private messaging, and file sharing.",
+    tags: ["Socket.io", "Redis", "MongoDB", "React"],
+    link: "https://github.com/jflxcloud/chat-engine",
+    status: "Active"
+  }
+];
+---
+
+<section id="projects" class="section">
+  <div class="container">
+    <h2 class="section-title">Projects</h2>
+    <div class="projects-grid grid grid-3">
+      {projects.map((project) => (
+        <div class="project-card card">
+          <div class="project-header">
+            <h3 class="project-title">{project.title}</h3>
+            <span class={`project-status status-${project.status.toLowerCase()}`}>
+              {project.status}
+            </span>
+          </div>
+          <p class="project-description">{project.description}</p>
+          <div class="project-tags">
+            {project.tags.map((tag) => (
+              <span class="project-tag">{tag}</span>
+            ))}
+          </div>
+          <div class="project-actions">
+            <a href={project.link} class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+              </svg>
+              View Code
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .projects-grid {
+    margin-top: 2rem;
+  }
+
+  .project-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    gap: 1rem;
+  }
+
+  .project-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+  }
+
+  .project-status {
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+
+  .status-active {
+    background: rgba(34, 197, 94, 0.2);
+    color: #22c55e;
+    border: 1px solid rgba(34, 197, 94, 0.3);
+  }
+
+  .status-beta {
+    background: rgba(251, 191, 36, 0.2);
+    color: #fbbf24;
+    border: 1px solid rgba(251, 191, 36, 0.3);
+  }
+
+  .status-template, .status-boilerplate {
+    background: rgba(168, 85, 247, 0.2);
+    color: #a855f7;
+    border: 1px solid rgba(168, 85, 247, 0.3);
+  }
+
+  .project-description {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+    line-height: 1.6;
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .project-tag {
+    background: var(--bg-tertiary);
+    color: var(--accent-primary);
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+
+  .project-actions {
+    margin-top: auto;
+  }
+
+  .btn svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  @media (max-width: 768px) {
+    .project-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+  }
+</style>

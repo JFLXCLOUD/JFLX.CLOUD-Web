@@ -1,0 +1,195 @@
+---
+const blogPosts = [
+  {
+    title: "Building Scalable Microservices with Node.js",
+    excerpt: "Learn how to architect and deploy microservices that can handle millions of requests while maintaining code quality and developer productivity.",
+    date: "2024-01-15",
+    tags: ["Node.js", "Microservices", "Architecture"],
+    readTime: "8 min read",
+    slug: "building-scalable-microservices-nodejs"
+  },
+  {
+    title: "The Future of Cloud Computing: Serverless vs Containers",
+    excerpt: "An in-depth comparison of serverless functions and containerized applications, exploring when to use each approach for maximum efficiency.",
+    date: "2024-01-08",
+    tags: ["Cloud", "Serverless", "Containers"],
+    readTime: "12 min read",
+    slug: "future-cloud-computing-serverless-containers"
+  },
+  {
+    title: "Optimizing Database Performance in Production",
+    excerpt: "Practical strategies for improving database performance, from query optimization to connection pooling and caching strategies.",
+    date: "2024-01-02",
+    tags: ["Database", "Performance", "PostgreSQL"],
+    readTime: "10 min read",
+    slug: "optimizing-database-performance-production"
+  },
+  {
+    title: "Building a Real-time Analytics Dashboard",
+    excerpt: "Step-by-step guide to creating a real-time analytics dashboard using WebSockets, Redis, and modern frontend frameworks.",
+    date: "2023-12-28",
+    tags: ["Analytics", "Real-time", "WebSockets"],
+    readTime: "15 min read",
+    slug: "building-realtime-analytics-dashboard"
+  },
+  {
+    title: "DevOps Best Practices for Small Teams",
+    excerpt: "Essential DevOps practices that small development teams can implement to improve deployment reliability and development velocity.",
+    date: "2023-12-20",
+    tags: ["DevOps", "CI/CD", "Best Practices"],
+    readTime: "7 min read",
+    slug: "devops-best-practices-small-teams"
+  },
+  {
+    title: "Introduction to Infrastructure as Code",
+    excerpt: "Getting started with Infrastructure as Code using Terraform and AWS, including best practices for managing cloud resources.",
+    date: "2023-12-15",
+    tags: ["IaC", "Terraform", "AWS"],
+    readTime: "11 min read",
+    slug: "introduction-infrastructure-as-code"
+  }
+];
+
+function formatDate(dateString: string) {
+  return new Date(dateString).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+}
+---
+
+<section id="blog" class="section">
+  <div class="container">
+    <h2 class="section-title">Latest Blog Posts</h2>
+    <div class="blog-grid grid grid-2">
+      {blogPosts.map((post) => (
+        <article class="blog-card card">
+          <div class="blog-meta">
+            <time class="blog-date">{formatDate(post.date)}</time>
+            <span class="blog-read-time">{post.readTime}</span>
+          </div>
+          <h3 class="blog-title">
+            <a href={`/blog/${post.slug}`}>{post.title}</a>
+          </h3>
+          <p class="blog-excerpt">{post.excerpt}</p>
+          <div class="blog-tags">
+            {post.tags.map((tag) => (
+              <span class="blog-tag">{tag}</span>
+            ))}
+          </div>
+          <div class="blog-actions">
+            <a href={`/blog/${post.slug}`} class="read-more">
+              Read More
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="m9 18 6-6-6-6"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+    <div class="blog-cta">
+      <a href="/blog" class="btn btn-primary">View All Posts</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .blog-grid {
+    margin-bottom: 3rem;
+  }
+
+  .blog-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .blog-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+
+  .blog-date {
+    font-weight: 500;
+  }
+
+  .blog-read-time {
+    color: var(--accent-primary);
+  }
+
+  .blog-title {
+    margin-bottom: 1rem;
+  }
+
+  .blog-title a {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.3;
+    transition: color 0.3s ease;
+  }
+
+  .blog-title a:hover {
+    color: var(--accent-primary);
+  }
+
+  .blog-excerpt {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+  }
+
+  .blog-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .blog-tag {
+    background: var(--bg-tertiary);
+    color: var(--accent-primary);
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+
+  .blog-actions {
+    margin-top: auto;
+  }
+
+  .read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--accent-primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  .read-more:hover {
+    gap: 0.75rem;
+  }
+
+  .read-more svg {
+    transition: transform 0.3s ease;
+  }
+
+  .read-more:hover svg {
+    transform: translateX(2px);
+  }
+
+  .blog-cta {
+    text-align: center;
+  }
+</style>

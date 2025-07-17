@@ -2,7 +2,6 @@
 title: "The Power of PowerShell: Unlocking the Full Potential of Automation and Scripting"
 description: "Discover how PowerShell revolutionizes IT automation across Windows, Linux, and macOS platforms."
 pubDate: 2025-07-17
-layout: src/layouts/BlogPost.astro
 author: Jeff Burns
 tags: [PowerShell, Automation, IT, Scripting, DevOps]
 ---
